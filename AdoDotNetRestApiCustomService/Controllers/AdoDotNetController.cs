@@ -36,7 +36,10 @@ public class AdoDotNetController : ControllerBase
 	{
 		try
 		{
-			if(blog is null)
+
+			#region Validation
+
+			if (blog is null)
 			{
 				return BadRequest("Please fill all field.");
 			}
@@ -52,6 +55,8 @@ public class AdoDotNetController : ControllerBase
 			{
 				return BadRequest("Invalid Blog Data");
 			}
+
+			#endregion
 
 			var parameters = new List<SqlParameter>
 			{
