@@ -29,4 +29,43 @@ public class AdoDotNetController : ControllerBase
 
 	#endregion
 
+	[HttpPost]
+	public async Task<IActionResult> CreateBlog([FromBody] BlogModel blog)
+	{
+		try
+		{
+			if(blog is null)
+			{
+				return BadRequest("Please fill all field.");
+			}
+			if (string.IsNullOrWhiteSpace(blog.BlogTitle))
+			{
+				return BadRequest("Invalid Blog Data.");
+			}
+			if (string.IsNullOrWhiteSpace(blog.BlogAuthor))
+			{
+				return BadRequest("Invalid Blog Data");
+			}
+			if (string.IsNullOrWhiteSpace(blog.BlogContent))
+			{
+				return BadRequest("Invalid Blog Data");
+			}
+
+			var parameters = new List<SqlParameter>
+			{
+				new("@BlogTitle",blog.BlogTitle),
+				new("@BlogAuthor",blog.BlogAuthor),
+				new("@BlogContent",blog.BlogContent),
+				new("@DeleteFlag", false),
+			};
+
+			int result = await _adoDotNetService.ExecuteAsync(Query.CreateBlogQuery, parameters.ToArray());
+			return result > 0 ? Ok("Blog Created Successfully.") : StatusCode(500, "Failed to Create Blog");
+
+		}
+		catch (Exception ex)
+		{
+			return StatusCode(500, $"Internal Server Error: {ex.Message}");
+		}
+	}
 }
