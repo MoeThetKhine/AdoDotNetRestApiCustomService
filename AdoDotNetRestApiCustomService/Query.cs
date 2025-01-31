@@ -1,46 +1,45 @@
-﻿namespace AdoDotNetRestApiCustomService
+﻿namespace AdoDotNetRestApiCustomService;
+
+public class Query
 {
-	public class Query
-	{
 
-		#region GetAllBlogsQuery
+	#region GetAllBlogsQuery
 
-		public static string GetAllBlogsQuery { get; } =
-		@"SELECT [BlogId]
+	public static string GetAllBlogsQuery { get; } =
+	@"SELECT [BlogId]
       ,[BlogTitle]
       ,[BlogAuthor]
       ,[BlogContent]
       ,[DeleteFlag]
   FROM [dbo].[Tbl_Blog] ORDER BY BlogId DESC";
 
-		#endregion
+	#endregion
 
-		#region CreateBlogQuery
+	#region CreateBlogQuery
 
-		public static string CreateBlogQuery { get; } =
-		"INSERT INTO dbo.Tbl_Blog (BlogTitle, BlogAuthor, BlogContent, DeleteFlag) VALUES (@BlogTitle, @BlogAuthor, @BlogContent, @DeleteFlag);";
+	public static string CreateBlogQuery { get; } =
+	"INSERT INTO dbo.Tbl_Blog (BlogTitle, BlogAuthor, BlogContent, DeleteFlag) VALUES (@BlogTitle, @BlogAuthor, @BlogContent, @DeleteFlag);";
 
-		#endregion
+	#endregion
 
-		#region UpdateBlogQuery
+	#region UpdateBlogQuery
 
-		public static string UpdateBlogQuery { get; } =
-		@"UPDATE dbo.Tbl_Blog 
+	public static string UpdateBlogQuery { get; } =
+	@"UPDATE dbo.Tbl_Blog 
 	  SET BlogTitle = @BlogTitle, 
 	      BlogAuthor = @BlogAuthor, 
 	      BlogContent = @BlogContent 
 	  WHERE BlogId = @BlogId";
 
-		#endregion
+	#endregion
 
-		#region DeleteBlogQuery
+	#region DeleteBlogQuery
 
-		public static string DeleteBlogQuery { get; } =
-		@"UPDATE dbo.Tbl_Blog 
+	public static string DeleteBlogQuery { get; } =
+	@"UPDATE dbo.Tbl_Blog 
 		  SET DeleteFlag = 1 
 		  WHERE BlogId = @BlogId";
 
-		#endregion
+	#endregion
 
-	}
 }
