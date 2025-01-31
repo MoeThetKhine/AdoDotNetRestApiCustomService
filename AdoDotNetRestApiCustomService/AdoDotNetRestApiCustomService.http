@@ -1,0 +1,6 @@
+@AdoDotNetRestApiCustomService_HostAddress = http://localhost:5077
+
+GET {{AdoDotNetRestApiCustomService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
