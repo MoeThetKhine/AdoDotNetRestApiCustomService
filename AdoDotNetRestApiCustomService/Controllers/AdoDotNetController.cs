@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace AdoDotNetRestApiCustomService.Controllers
+﻿namespace AdoDotNetRestApiCustomService.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
