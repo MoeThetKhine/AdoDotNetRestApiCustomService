@@ -26,6 +26,6 @@ namespace AdoDotNetRestApiCustomService.Controllers
 				return StatusCode(500, $"Internal Server Error: {ex.Message}");
 			}
 
-
+		}
 	}
 }
