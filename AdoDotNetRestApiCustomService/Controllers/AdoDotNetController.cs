@@ -78,7 +78,7 @@ public class AdoDotNetController : ControllerBase
 
 	#endregion
 
-
+	#region UpdateBlog
 
 	[HttpPut("{id}")]
 	public async Task<IActionResult> UpdateBlog(int id, [FromBody] BlogModel blog)
@@ -119,5 +119,7 @@ public class AdoDotNetController : ControllerBase
 			return StatusCode(500, $"Internal Server Error: {ex.Message}");
 		}
 	}
+
+	#endregion
 
 }
