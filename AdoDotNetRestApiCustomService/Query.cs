@@ -9,5 +9,7 @@
       ,[BlogContent]
       ,[DeleteFlag]
   FROM [dbo].[Tbl_Blog] ORDER BY BlogId DESC";
+
+
 	}
 }
