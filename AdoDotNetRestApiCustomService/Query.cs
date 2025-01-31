@@ -33,10 +33,14 @@
 
 		#endregion
 
+		#region DeleteBlogQuery
+
 		public static string DeleteBlogQuery { get; } =
 		@"UPDATE dbo.Tbl_Blog 
 		  SET DeleteFlag = 1 
 		  WHERE BlogId = @BlogId";
+
+		#endregion
 
 	}
 }
