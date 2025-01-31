@@ -49,9 +49,3 @@ public class AdoDotNetService
 	#endregion
 
 }
-
-
-
-
-
-
