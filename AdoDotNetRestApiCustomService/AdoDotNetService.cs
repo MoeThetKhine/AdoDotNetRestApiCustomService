@@ -29,7 +29,20 @@ namespace AdoDotNetRestApiCustomService
 			return JsonConvert.DeserializeObject<List<T>>(jsonStr)!;
 		}
 
-	
+		public async Task<int> ExecuteAsync(string query, SqlParameter[]? parameters = null)
+		{
+			using SqlConnection conn = GetConnection();
+			await conn.OpenAsync();
+			using SqlCommand cmd = new(query, conn);
+			if (parameters is not null)
+			{
+				cmd.Parameters.AddRange(parameters);
+			}
+
+			int result = await cmd.ExecuteNonQueryAsync();
+			await conn.CloseAsync();
+			return result;
+		}
 
 	}
 }
