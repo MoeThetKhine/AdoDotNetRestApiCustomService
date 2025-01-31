@@ -78,9 +78,6 @@ public class AdoDotNetController : ControllerBase
 
 	#endregion
 
-	//		int result = await _adoDotNetService.ExecuteAsync(Query.UpdateBlogQuery, parameters.ToArray());
-	//		return result > 0 ? Ok("Blog updated successfully.") : NotFound("Blog not found.");
-	//	}
 
 
 	[HttpPut("{id}")]
