@@ -6,5 +6,11 @@ namespace AdoDotNetRestApiCustomService.Controllers
 	[ApiController]
 	public class AdoDotNetController : ControllerBase
 	{
+		private readonly AdoDotNetService _adoDotNetService;
+
+		public AdoDotNetController(AdoDotNetService adoDotNetService)
+		{
+			_adoDotNetService = adoDotNetService;
+		}
 	}
 }
