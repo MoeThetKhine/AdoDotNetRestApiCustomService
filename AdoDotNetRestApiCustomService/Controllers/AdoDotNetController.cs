@@ -127,6 +127,8 @@ public class AdoDotNetController : ControllerBase
 
 	#endregion
 
+	#region DeleteBlog
+
 	[HttpDelete("{id}")]
 	public async Task<IActionResult> DeleteBlog(int id)
 	{
@@ -145,5 +147,7 @@ public class AdoDotNetController : ControllerBase
 			return StatusCode(500, $"Internal server error: {ex.Message}");
 		}
 	}
+
+	#endregion
 
 }
