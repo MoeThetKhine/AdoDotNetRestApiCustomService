@@ -29,6 +29,8 @@ public class AdoDotNetController : ControllerBase
 
 	#endregion
 
+	#region CreateBlog
+
 	[HttpPost]
 	public async Task<IActionResult> CreateBlog([FromBody] BlogModel blog)
 	{
@@ -68,4 +70,7 @@ public class AdoDotNetController : ControllerBase
 			return StatusCode(500, $"Internal Server Error: {ex.Message}");
 		}
 	}
+
+	#endregion
+
 }
