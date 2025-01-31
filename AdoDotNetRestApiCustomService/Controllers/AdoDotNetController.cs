@@ -127,6 +127,23 @@ public class AdoDotNetController : ControllerBase
 
 	#endregion
 
+	[HttpDelete("{id}")]
+	public async Task<IActionResult> DeleteBlog(int id)
+	{
+		try
+		{
+			var parameters = new List<SqlParameter>
+			{
+				new("@BlogId", id)
+			};
 
+			int result = await _adoDotNetService.ExecuteAsync(Query.DeleteBlogQuery, parameters.ToArray());
+			return result > 0 ? Ok("Blog marked as deleted successfully.") : NotFound("Blog not found.");
+		}
+		catch (Exception ex)
+		{
+			return StatusCode(500, $"Internal server error: {ex.Message}");
+		}
+	}
 
 }
