@@ -10,6 +10,8 @@ namespace AdoDotNetRestApiCustomService
 
 		private SqlConnection GetConnection() => new(_connStr);
 
+		#region QueryAsync
+
 		public async Task<List<T>> QueryAsync<T>(string query, SqlParameter[]? parameters = null)
 		{
 			using SqlConnection conn = GetConnection();
@@ -28,6 +30,8 @@ namespace AdoDotNetRestApiCustomService
 			string jsonStr = JsonConvert.SerializeObject(dt);
 			return JsonConvert.DeserializeObject<List<T>>(jsonStr)!;
 		}
+
+		#endregion
 
 		public async Task<int> ExecuteAsync(string query, SqlParameter[]? parameters = null)
 		{
