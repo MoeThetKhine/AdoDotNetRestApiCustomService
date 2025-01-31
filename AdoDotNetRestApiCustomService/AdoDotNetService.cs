@@ -1,8 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Newtonsoft.Json;
-using System.Data;
-
-namespace AdoDotNetRestApiCustomService
+﻿namespace AdoDotNetRestApiCustomService
 {
 	public class AdoDotNetService
 	{
