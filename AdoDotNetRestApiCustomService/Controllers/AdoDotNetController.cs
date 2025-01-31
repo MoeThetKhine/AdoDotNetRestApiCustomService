@@ -11,6 +11,8 @@ public class AdoDotNetController : ControllerBase
 		_adoDotNetService = adoDotNetService;
 	}
 
+	#region GetAllBlogs
+
 	[HttpGet]
 	public async Task<IActionResult> GetAllBlogs()
 	{
@@ -23,6 +25,8 @@ public class AdoDotNetController : ControllerBase
 		{
 			return StatusCode(500, $"Internal Server Error: {ex.Message}");
 		}
-
 	}
+
+	#endregion
+
 }
