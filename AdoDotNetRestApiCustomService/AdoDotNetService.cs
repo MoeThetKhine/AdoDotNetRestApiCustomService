@@ -33,6 +33,8 @@ namespace AdoDotNetRestApiCustomService
 
 		#endregion
 
+		#region ExecuteAsync
+
 		public async Task<int> ExecuteAsync(string query, SqlParameter[]? parameters = null)
 		{
 			using SqlConnection conn = GetConnection();
@@ -47,6 +49,8 @@ namespace AdoDotNetRestApiCustomService
 			await conn.CloseAsync();
 			return result;
 		}
+
+		#endregion
 
 	}
 }
