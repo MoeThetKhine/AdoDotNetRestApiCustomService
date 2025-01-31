@@ -1,6 +1,11 @@
+using AdoDotNetRestApiCustomService;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddSingleton<AdoDotNetService>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
